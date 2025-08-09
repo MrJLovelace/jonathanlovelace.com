@@ -1,0 +1,15 @@
+function setMasthead(text){
+  const h1 = document.getElementById('masthead');
+  if(h1){ h1.textContent = text; }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+  if(!form) return;
+  form.addEventListener('submit', async (e) => {
+    const endpoint = form.getAttribute('data-action');
+    if(!endpoint || endpoint === '#' || endpoint.includes('your-id')){
+      alert('Form is demo-only. Add your Formspree endpoint in index.html to enable.');
+      e.preventDefault();
+    }
+  });
+});
